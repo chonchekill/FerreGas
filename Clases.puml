@@ -9,41 +9,37 @@ class Login{
 
 }
 
-class Equipaje{
+class Principal{
 
-    float peso
-    float ancho
-    float alto
-    float profundida
+    barra principal
+    textbox Información_empresa
+    bottom Desplegable_Ubicación
+    textbox Información_ubicación
 
-}
 
-class Origen{
-
-    string cuidad
-    string codigoAreopuerto
 
 }
 
-Class Destino{
+class Servicios{
 
-    string cuidad
-    string codigoAreopuerto
+    barra mantenimiento
+    barra instalación
+    barra reparación
+    bottom contratarServicio
+    hipervinculo Whatsapp
+}
+
+Class Productos{
+
+    list productos
+    bottom Carrito
+    bottom Comprar
 
 }
 
-class Vuelo {
 
-    int Hora
-    Date fechaIda
-    Date fechaLlegada
+Login *-- Principal
+Principal o-- Servicios
+Principal o-- Productos
 
-}
-
-class Reserva {
-
-    int numeroParajero
-    Date fecha
-
-}
 @enduml
