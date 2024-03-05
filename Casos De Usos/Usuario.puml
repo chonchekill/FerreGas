@@ -1,0 +1,40 @@
+@startuml
+
+!pragma layout smetana
+
+actor Cliente as cliente
+
+actor Accesor as accesor
+
+usecase (Ingresar correo y contraseña) as login
+
+usecase (Selecionar entre servicios, principal o productos) as seleccionDeServicios
+
+usecase (Selección de servicios de mantenimiento, reparación o instalación) as serviciosMantenimentoInstalacion
+
+usecase (Redirigir a Whatsapp) as whatsapp
+
+usecase (Seleción de productos) as selecionProducto
+
+usecase (Agregar producto) as agregarProducto
+
+usecase (Comprar producto) as comprarProducto
+
+usecase (Selección de principal) as selecionPrincipal
+
+usecase (Información de la empresa) as Informacion
+
+cliente-left->login
+
+cliente-right->seleccionDeServicios
+seleccionDeServicios-down->serviciosMantenimentoInstalacion
+serviciosMantenimentoInstalacion -down->whatsapp
+accesor -up-> whatsapp
+cliente --> accesor
+seleccionDeServicios -right-> selecionProducto
+selecionProducto -down-> agregarProducto
+agregarProducto -down-> comprarProducto
+seleccionDeServicios -up-> selecionPrincipal
+selecionPrincipal -up-> Informacion
+
+@enduml

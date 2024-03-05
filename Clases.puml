@@ -1,0 +1,49 @@
+@startuml
+
+!pragma layout smetana
+
+class Login{
+
+    string correoElectronico
+    string contraseña
+
+}
+
+class Equipaje{
+
+    float peso
+    float ancho
+    float alto
+    float profundida
+
+}
+
+class Origen{
+
+    string cuidad
+    string codigoAreopuerto
+
+}
+
+Class Destino{
+
+    string cuidad
+    string codigoAreopuerto
+
+}
+
+class Vuelo {
+
+    int Hora
+    Date fechaIda
+    Date fechaLlegada
+
+}
+
+class Reserva {
+
+    int numeroParajero
+    Date fecha
+
+}
+@enduml
