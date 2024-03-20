@@ -1,0 +1,28 @@
+@startuml
+
+    /' Actor '/
+actor Usuario as Usuario
+
+boundary "Fe pantalla de producto" as pantallaProducto
+boundary "Fe productos disponibles" as pantallaProductoDisponible
+boundary "Fe comprar" as comprarProducto
+    /' Casos de uso '/
+usecase (Comprar) as comprar
+usecase (Producto) as producto
+    /' Control '/
+control "BE Obtener Productos" as obtenerProductos
+control "Compra producto" as compraporducto
+    /' Entity '/
+entity "Obtener base de productos" as baseProductos
+
+
+Usuario --> producto
+producto  --> pantallaProducto
+pantallaProducto -down-> pantallaProductoDisponible
+pantallaProductoDisponible -down- obtenerProductos
+obtenerProductos -right-> baseProductos
+pantallaProducto -right-> compraporducto
+compraporducto  -right- comprarProducto: Comprar Productos
+compraporducto -up-> comprar
+
+@enduml

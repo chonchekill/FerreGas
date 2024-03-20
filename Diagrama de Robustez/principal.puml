@@ -1,0 +1,26 @@
+@startuml
+
+actor Usuario as usuario
+
+    /' boundary '/
+boundary "Principal" as principal
+boundary "Servicios" as servicios
+boundary "Productos" as productos
+boundary "¿Quiénes somos?" as quienesSomos
+boundary "¿Dónde estamos ubicados? " as ubicacion
+
+usecase (Sevicios) as serviciosUsecase
+usecase (Productos) as productosUsecase
+
+control "Seleccionar ventana" as seleccionarVentana
+
+usuario -down-principal
+principal -down-> seleccionarVentana
+principal -left-> quienesSomos
+principal -right-> ubicacion
+seleccionarVentana -down- servicios
+servicios -left-> serviciosUsecase
+seleccionarVentana -down- productos
+productos -right-> productosUsecase 
+
+@enduml
