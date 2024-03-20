@@ -1,0 +1,41 @@
+@startuml
+
+actor Usuario as usuario
+actor Asesor as asesor
+
+    /' boundary '/
+boundary "Servicios" as servicios
+boundary "Mantenimiento" as mantenimiento
+boundary "Instalación" as instalacion 
+boundary "Reparación" as reparacion
+
+usecase (Whatsapp) as whatsapp
+
+control "Seleccionar ventana" as seleccionarVentana
+control "Obtener mantenimientos" as obtenerMantenimiento
+control "Obtener instalaciones" as obtenerInstalaciones
+control "Obtener reparaciones" as obtenerReparacion
+control "Redirigir a whatsapp" as whatsappRedirigir
+
+entity "Base de mantenimentos" as baseMantenimiento
+entity "Base de reparaciones" as baseReparaciones
+entity "Base de instalaciones" as baseInstalaciones
+
+usuario -down-servicios
+servicios -down-> seleccionarVentana
+seleccionarVentana -down-> mantenimiento
+seleccionarVentana-down-> instalacion
+seleccionarVentana -down- reparacion
+mantenimiento -right-> obtenerMantenimiento
+instalacion -left-> obtenerInstalaciones
+reparacion -right- obtenerReparacion
+obtenerInstalaciones -down-> baseInstalaciones
+obtenerMantenimiento -down-> baseMantenimiento
+obtenerReparacion -down-> baseReparaciones
+instalacion -down-> whatsappRedirigir
+reparacion -down-> whatsappRedirigir
+instalacion -down-> whatsappRedirigir
+whatsappRedirigir -down- whatsapp
+whatsapp -down-asesor
+
+@enduml
