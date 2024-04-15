@@ -1,0 +1,42 @@
+head>
+
+    <title>FerreGas</title>
+
+    <body>
+    
+        <h1>Registro de servicio</h1>
+        
+        <form action="Servidor.php" method="post">
+
+             <!-- Radio -->
+            <input type="radio" id="Mantenimiento" name="selecionServicio" value="Mantenimiento">
+            <label for="Mantenimiento">Mantenimiento</label><br>
+            <input type="radio" id="Instalación" name="selecionServicio" value="Instalacion">
+            <label for="Instalacion">Instalación</label><br>
+            <input type="radio" id="Reparación" name="selecionServicio" value="Reparacion">
+            <label for="Reparacion">Reparación</label><br><br>
+
+            Tipo de documento: <select name="selectDocument" id="document">
+
+                <option value="cedulaCuidadania">Cédula de cuidadanía</option>
+                <option value="cedulaExtranjera">Cédula extranjera</option>
+                <option value="nit">Nit</option>
+
+            </select> <br><br>
+
+            Documento: <input type="number" name="document"><br><br>
+            
+            Nombre completo:<input type="text" name ="nombreUsuario"> <br> <br>
+
+            Fecha: <input type="date" name="fechaServicio"> <br> <br>
+
+            <input type="submit" value="Guardar">
+            
+
+
+        </form>
+
+        
+    </body>
+
+</head>
